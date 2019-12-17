@@ -1,0 +1,16 @@
+{
+  "domain": {
+    "env": {
+      "siteUrl": "http://localhost/stickynotes-wp/"
+    }
+  },
+  "API": {
+    "WP": "wp-json/",
+    "V2": "wp/v2/",
+    "JWT": "jwt-auth/v1/"
+  },
+  "endpoint": {
+    "token": "token/",
+    "stickyNotes": "sticky_notes/"
+  }
+}
