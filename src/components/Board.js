@@ -15,11 +15,15 @@ export default class Board extends Component {
     };
   }
 
-  async componentDidMount() {
-    const notes = await this.getNotesFromWp(); 
-  
+  componentDidMount() {
+    this.loadNotes();
+  }
+
+  async loadNotes() {
+    const notes = await this.getNotesFromWp();
+
     notes.map(single => {
-      this.add(single.title.rendered, single.content.rendered);
+      this.add(single.title.rendered, single.content.rendered, single.id);
       return null;
     });
   }
@@ -45,7 +49,7 @@ export default class Board extends Component {
         "Content-Type": "application/json",
         Authorization: `Bearer ${
           JSON.parse(localStorage.getItem(AUTH_TOKEN)).token
-        }`,
+          }`,
       },
     })
 
@@ -59,10 +63,10 @@ export default class Board extends Component {
   }
 
   // Add note to React State
-  add(title, content) {
+  add(title, content, id) {
     const { notes } = this.state;
     notes.push({
-      id: this.nextId(this),
+      id,
       title,
       content,
     });
@@ -71,10 +75,10 @@ export default class Board extends Component {
 
   // Update note text
   async update(title, content, i) {
-    const notes = [ ...this.state.notes ];
+    const notes = [...this.state.notes];
     const newNotes = [
       ...notes.map((note, currentIndex) => {
-        if( i === currentIndex ) {
+        if (i === currentIndex) {
           return {
             ...note,
             title,
@@ -86,12 +90,30 @@ export default class Board extends Component {
       })
     ];
 
-    this.setState({notes: newNotes});
-    await this.addNoteToWp(title, content);    
+    this.setState({ notes: newNotes });
+    await this.addNoteToWp(title, content);
   }
 
   // Remove note
-  remove(i) {}
+  async remove(id) {
+    await fetch(`${WP_SITE_URL}${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem(AUTH_TOKEN)).token
+          }`,
+      },
+    }).then(res => {
+      if (res.status === 200) {
+        this.setState({
+          notes: [
+            ...this.state.notes.filter( note => note.id !== id )
+          ]
+        })
+      }
+    })
+  }
 
   // Render Notes
   renderNotes(note, i) {
@@ -103,6 +125,7 @@ export default class Board extends Component {
         onRemove={this.remove.bind(this)}
         title={note.title}
         content={note.content}
+        id={note.id}
       />
     );
   }

@@ -26,12 +26,13 @@ export default class Note extends Component {
 
   // Remove note
   remove() {
-    const { index } = this.props;
-    this.props.onRemove(index);
+    const { id } = this.props;
+    this.props.onRemove(id);
   }
 
   // Render note body
-  renderNoteBody(content, title, save) {
+  renderNoteBody(content, title, id, save) {
+    console.log('id',id)
     const { editing } = this.state;
     return (
       <div draggable="true" onDragStart={(e) => this.onDragStart(e)} onDoubleClick={() => this.edit()} className="note" style={this.style}>
@@ -59,20 +60,20 @@ export default class Note extends Component {
 
   // Render note preview
   renderDisplay() {
-    const { title, content } = this.props;
-    return this.renderNoteBody(content, title);
+    const { id, title, content } = this.props;
+    return this.renderNoteBody(content, title, id);
   }
 
   // Render note edit mode
   renderForm() {
-    const { title, content } = this.props;
+    const { title, content, id } = this.props;
     const element = (
       <div>
         <textarea ref={ref => this.newText = ref} defaultValue={content ? content : ''} className="note__textarea"></textarea>
       </div>
     );
 
-    return this.renderNoteBody(element, title, true);
+    return this.renderNoteBody(element, title, id, true);
   }
 
   render() {
