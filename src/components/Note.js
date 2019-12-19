@@ -35,7 +35,7 @@ export default class Note extends Component {
     console.log('id',id)
     const { editing } = this.state;
     return (
-      <div draggable="true" onDragStart={(e) => this.onDragStart(e)} onDoubleClick={() => this.edit()} className="note" style={this.style}>
+      <div className="note" style={this.style}>
         <article>
           <header className="note__header">
             <div className="wrapper-tooltip">
@@ -47,7 +47,7 @@ export default class Note extends Component {
               editing ?
             <div className="note__content">{content ? content : ''}</div>
               :
-            <div className="note__content" dangerouslySetInnerHTML={{ __html: content ? content : '' }} />              
+            <div onClick={() => this.edit()} className="note__content" dangerouslySetInnerHTML={{ __html: content ? content : '' }} />              
           }
           <footer className="note__footer">
             <div className="note__fold"></div>
