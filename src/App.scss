@@ -161,7 +161,7 @@ body {
   
   .note__footer {
     position: relative;
-    bottom: 0px;
+    bottom: 18px;
     
     .note__fold {
       float: left;
@@ -250,7 +250,7 @@ p {
 // ANIMATIONS
 .fadein {
   text-align: center;
-  animation: fadein 3s;
+  animation: fadein 1s;
 }
 
 @keyframes fadein {
@@ -265,7 +265,28 @@ p {
 .container.login {
   display: flex;
   justify-content: center;
-  background: yellow;
+  background: #FFD248;
   align-content: center;
-  padding: 5rem;
+  max-width: 320px;
+  margin-top: 30px;
+  padding: 8px;
+  color: #000000;
+}
+
+.container.login form {
+  display: flex;
+  flex-direction: column;
+}
+
+button.login {
+  width: 88px;
+}
+
+.logout {
+  position: absolute;
+  right: 20px;
+  top: 6px;
+  height: 37px;
+  width: 80px;
+  line-height: 1.5;
 }

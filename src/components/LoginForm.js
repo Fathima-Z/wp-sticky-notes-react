@@ -73,7 +73,7 @@ class LoginForm extends Component {
           validated={validate}
           onSubmit={this.handleLogin}
         >
-          <h2>React WordPress JWT Auth</h2>
+       
           <Form.Group controlId="username">
             <Form.Label>Username</Form.Label>
             <Form.Control
@@ -101,7 +101,7 @@ class LoginForm extends Component {
             </Form.Control.Feedback>
           </Form.Group>
           {this.renderError()}
-          <Button variant="primary" type="submit">
+          <Button className="login" variant="secondary" type="submit">
             Login
           </Button>
         </Form>

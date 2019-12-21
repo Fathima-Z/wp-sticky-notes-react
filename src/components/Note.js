@@ -35,7 +35,7 @@ export default class Note extends Component {
     console.log('id',id)
     const { editing } = this.state;
     return (
-      <div className="note" style={this.style}>
+      <div className="note fadein">
         <article>
           <header className="note__header">
             <div className="wrapper-tooltip">

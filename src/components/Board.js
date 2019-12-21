@@ -130,6 +130,11 @@ export default class Board extends Component {
     );
   }
 
+  logout() {
+    localStorage.removeItem(AUTH_TOKEN);
+    this.props.history.push('/');
+  }
+
   render() {
     const { notes } = this.state;
     return (
@@ -141,6 +146,7 @@ export default class Board extends Component {
           >
             {newNoteButtonText}
           </div>
+          <button onClick={this.logout.bind(this)} className="btn btn-danger logout">Log out</button>
         </header>
         <div className="notes">{notes.map(this.renderNotes.bind(this))}</div>
       </div>
