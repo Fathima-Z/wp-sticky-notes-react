@@ -90,9 +90,9 @@ body {
 
 .main-header {
   height: 50px;
-  background-color: $turquoise-color;
-  color: $white-color;
-  cursor: pointer;
+  background-color: #CAC6C6;
+  color: black;
+  cursor: pointer
   
   h1 {
     font-size: 42px;
@@ -119,7 +119,7 @@ body {
   width: 315px;
   height: 200px;
   background: $second-yellow-color;
-  margin: 18px;
+  margin: 30px;
   padding: 10px;
   -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
   box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
@@ -157,6 +157,7 @@ body {
     height: 40px;
     width: 100%;
     background: #FFD248;
+    padding: 6px;
   }
   
   .note__footer {
