@@ -1,10 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 // VARIABLES
-$dark-yellow-color: #566573;
+$dark-grey-color: #566573;
 $light-yellow-color: #FFC43A;
 $second-yellow-color: #FFDA65;
-$turquoise-color: #707B7C;
+$grey-color: #707B7C;
 $blue-color: #1496bb;
 $white-color: white;
 $body-background: #24313C;
@@ -63,8 +63,8 @@ body {
   
   &:hover {
     &::before, &::after {
-      background: $turquoise-color;
-      color: $turquoise-color;
+      background: $grey-color;
+      color: $grey-color;
     }
   }
   
@@ -105,6 +105,7 @@ body {
   
   .main-header__text {
     padding: 15px;
+    cursor: pointer;
   }
 }
 
@@ -168,7 +169,7 @@ body {
       float: left;
       display: inline-block;
       border-top: 40px solid $light-yellow-color;
-      border-left: 40px solid $dark-yellow-color;
+      border-left: 40px solid $dark-grey-color;
     }
     
     .note__save {
@@ -193,61 +194,6 @@ body {
 p {
   word-wrap: break-word;
 }
-
-.wrapper-tooltip {
-  
-  &:hover .tooltip {
-    opacity: 1;
-    pointer-events: auto;
-    -webkit-transform: translateY(0px);
-    -moz-transform: translateY(0px);
-    -ms-transform: translateY(0px);
-    -o-transform: translateY(0px);
-    transform: translateY(0px);
-  }
-
-  .tooltip {
-    z-index: 999;
-    background: $blue-color;
-    bottom: 100%;
-    color: $white-color;
-    display: block;
-    left: -20px;
-    margin-bottom: 15px;
-    opacity: 0;
-    padding: 20px;
-    pointer-events: none;
-    position: absolute;
-    width: 100%;
-    @include transform(translateY(10px));
-    @include transition(all .25s ease-out);
-    @include transition(2px 2px 6px rgba(0, 0, 0, 0.28));
-
-    &:before {
-      bottom: -20px;
-      content: " ";
-      display: block;
-      height: 20px;
-      left: 0;
-      position: absolute;
-      width: 100%;
-    }
-    
-    &:after {
-      border-left: solid transparent 10px;
-      border-right: solid transparent 10px;
-      border-top: solid $blue-color 10px;
-      bottom: -10px;
-      content: " ";
-      height: 0;
-      left: 90%;
-      margin-left: -13px;
-      position: absolute;
-      width: 0;
-    }
-  }
-}
-
 // ANIMATIONS
 .fadein {
   animation: fadein 1s;

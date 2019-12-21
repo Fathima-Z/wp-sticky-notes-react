@@ -73,6 +73,7 @@ class LoginForm extends Component {
           validated={validate}
           onSubmit={this.handleLogin}
         >
+          <h2>WP React Sticky Notes</h2>
        
           <Form.Group controlId="username">
             <Form.Label>Username</Form.Label>

@@ -25,8 +25,10 @@ export default class Note extends Component {
 
   // Save edits
   save() {
-    const { index } = this.props;
-    this.props.onChange(this.newTitleRef.value, this.newContentRef.value, index);
+    const { index, content, title } = this.props;
+    const titleValue = this.newTitleRef ? this.newTitleRef.value : title;
+    const contentValue = this.newContentRef ? this.newContentRef.value : content;
+    this.props.onChange(titleValue, contentValue, index);
     this.setState({editingContent: false, editingTitle: false});
   }
 
