@@ -1,11 +1,13 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import './App.scss';
-import Board from './components/Board';
+import Router from './components/Router';
 
 function App() {
   return (
     <div className="App">
-      <Board />
+      <Router />
     </div>
   );
 }
