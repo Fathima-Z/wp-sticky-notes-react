@@ -28,7 +28,6 @@ class LoginForm extends Component {
 
   handleLoginSuccess = user => {
     localStorage.setItem(AUTH_TOKEN, JSON.stringify(user));
-    console.log("user", user);
     this.setState({
       validate: false,
       loading: false,

@@ -40,7 +40,6 @@ export default class Note extends Component {
 
   // Render note body
   renderNoteBody(content, title, id, save) {
-    console.log('id',id)
     const { editingContent } = this.state;
     const { editingTitle } = this.state;
     return (
