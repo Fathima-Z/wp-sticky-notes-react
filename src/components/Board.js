@@ -96,6 +96,11 @@ export default class Board extends Component {
 
   // Remove note
   async remove(id) {
+    this.setState({
+      notes: [
+        ...this.state.notes.filter( note => note.id !== id )
+      ]
+    })
     await fetch(`${WP_SITE_URL}${id}`, {
       method: "DELETE",
       headers: {
@@ -106,11 +111,7 @@ export default class Board extends Component {
       },
     }).then(res => {
       if (res.status === 200) {
-        this.setState({
-          notes: [
-            ...this.state.notes.filter( note => note.id !== id )
-          ]
-        })
+        // removed successfully
       }
     })
   }
