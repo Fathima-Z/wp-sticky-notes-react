@@ -249,7 +249,6 @@ p {
 
 // ANIMATIONS
 .fadein {
-  text-align: center;
   animation: fadein 1s;
 }
 
@@ -289,4 +288,9 @@ button.login {
   height: 37px;
   width: 80px;
   line-height: 1.5;
+}
+
+input.title__editing {
+  background-color: transparent;
+  border: none;
 }

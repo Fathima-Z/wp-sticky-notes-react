@@ -141,7 +141,7 @@ export default class Board extends Component {
       <div className="board">
         <header className="main-header">
           <div
-            className="main-header__text fadein"
+            className="main-header__text text-center fadein"
             onClick={this.add.bind(this, newNoteText, false)}
           >
             {newNoteButtonText}

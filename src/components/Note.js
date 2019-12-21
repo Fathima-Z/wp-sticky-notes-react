@@ -8,20 +8,26 @@ export default class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editing: false
+      editingContent: false,
+      editingTitle: false,
     };
   }
 
   // Turn on edit moge
-  edit() {
-    this.setState({editing: true});
+  editContent() {
+    this.setState({editingContent: true});
+  }
+
+  // Turn on edit moge
+  editTitle() {
+    this.setState({editingTitle: true});
   }
 
   // Save edits
   save() {
     const { index } = this.props;
-    this.props.onChange('Test title', this.newText.value, index);
-    this.setState({editing: false});
+    this.props.onChange(this.newTitleRef.value, this.newContentRef.value, index);
+    this.setState({editingContent: false, editingTitle: false});
   }
 
   // Remove note
@@ -33,21 +39,27 @@ export default class Note extends Component {
   // Render note body
   renderNoteBody(content, title, id, save) {
     console.log('id',id)
-    const { editing } = this.state;
+    const { editingContent } = this.state;
+    const { editingTitle } = this.state;
     return (
       <div className="note fadein">
         <article>
           <header className="note__header">
             <div className="wrapper-tooltip">
                <span title={removeToolTipText} onClick={() => this.remove()} className="close hairline"></span>
-               <strong className="">{title}</strong>
+               {
+                  editingTitle ?
+                <strong className="note__title">{title ? title : ''}</strong>
+                  :
+                <strong onClick={() => this.editTitle()} className="note__title" dangerouslySetInnerHTML={{ __html: title ? title : '' }} />              
+              }
             </div>
           </header>
           {
-              editing ?
+              editingContent ?
             <div className="note__content">{content ? content : ''}</div>
               :
-            <div onClick={() => this.edit()} className="note__content" dangerouslySetInnerHTML={{ __html: content ? content : '' }} />              
+            <div onClick={() => this.editContent()} className="note__content" dangerouslySetInnerHTML={{ __html: content ? content : '' }} />              
           }
           <footer className="note__footer">
             <div className="note__fold"></div>
@@ -67,17 +79,26 @@ export default class Note extends Component {
   // Render note edit mode
   renderForm() {
     const { title, content, id } = this.props;
-    const element = (
-      <div>
-        <textarea ref={ref => this.newText = ref} defaultValue={content ? content : ''} className="note__textarea"></textarea>
-      </div>
-    );
+    const { editingContent, editingTitle } = this.state;
 
-    return this.renderNoteBody(element, title, id, true);
+    const contentElement = editingContent ?
+     (
+      <div>
+        <textarea ref={ref => this.newContentRef = ref} defaultValue={content ? content : ''} className="note__textarea"></textarea>
+      </div>
+    ) : content
+
+    const titleElement = editingTitle ? (
+      <div>
+        <input type="text" ref={ref => this.newTitleRef = ref} defaultValue={title ? title : ''} className="title__editing" />
+      </div>
+    ) : title
+
+    return this.renderNoteBody(contentElement, titleElement, id, true);
   }
 
   render() {
-    const { editing } = this.state;
-    return (editing ? this.renderForm() : this.renderDisplay());
+    const { editingContent, editingTitle } = this.state;
+    return ((editingContent || editingTitle) ? this.renderForm() : this.renderDisplay());
   }
 }
