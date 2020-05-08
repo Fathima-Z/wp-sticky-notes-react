@@ -1,3 +1,9 @@
+## WP Sticky Notes React
+
+This is a React app using the WordPress REST API, and Custom Post Types. It implements authentication with JSON Web Tokens.
+
+## Get Started
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

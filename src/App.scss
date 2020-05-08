@@ -211,12 +211,13 @@ p {
 .container.login {
   display: flex;
   justify-content: center;
-  background: #FFD248;
+  background: #ffd248;
   align-content: center;
-  max-width: 320px;
+  max-width: 350px;
   margin-top: 30px;
-  padding: 8px;
-  color: #000000;
+  padding: 12px;
+  color: #000;
+  align-items: center;
 }
 
 .container.login form {
