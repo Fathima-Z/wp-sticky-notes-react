@@ -2,8 +2,8 @@
 
 // VARIABLES
 $dark-grey-color: #566573;
-$light-yellow-color: #FFC43A;
-$second-yellow-color: #FFDA65;
+$light-orange-color: #d86a48;
+$second-peach-color: #efa188;
 $grey-color: #707B7C;
 $blue-color: #1496bb;
 $white-color: white;
@@ -119,7 +119,7 @@ body {
   flex-direction: column;
   width: 315px;
   height: 200px;
-  background: $second-yellow-color;
+  background: $second-peach-color;
   margin: 30px;
   padding: 10px;
   -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
@@ -135,7 +135,7 @@ body {
     height: 75%;
     width: 98%;
     font-size: 16px;
-    background: $second-yellow-color;
+    background: $second-peach-color;
     border: none;
     overflow: auto;
     resize: vertical;
@@ -157,7 +157,7 @@ body {
   .note__header {
     height: 40px;
     width: 100%;
-    background: #FFD248;
+    background: #d86a48;
     padding: 6px;
   }
   
@@ -168,7 +168,7 @@ body {
     .note__fold {
       float: left;
       display: inline-block;
-      border-top: 40px solid $light-yellow-color;
+      border-top: 40px solid $light-orange-color;
       border-left: 40px solid $dark-grey-color;
     }
     
@@ -180,7 +180,7 @@ body {
       line-height: 40px;
       cursor: pointer;
       display: inline-block;
-      background: $light-yellow-color;
+      background: $light-orange-color;
       color: $white-color;
       border: none;
       
