@@ -2,6 +2,12 @@
 
 This is a React app using the WordPress REST API, and Custom Post Types. It implements authentication with JSON Web Tokens.
 
+## Overview
+
+![title](Images/first.png)
+
+![title](Images/second.png)
+
 ## Get Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
