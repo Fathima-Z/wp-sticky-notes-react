@@ -4,9 +4,9 @@ This is a React app using the WordPress REST API, and Custom Post Types. It impl
 
 ## Overview
 
-![title](Images/first.png)
+![screenshot one](images/first.png)
 
-![title](Images/second.png)
+![screenshot two](images/second.png)
 
 ## Get Started
 
